@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "666199036045",
+    "project_id": "sitewebmobile-5965d",
+    "storage_bucket": "sitewebmobile-5965d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666199036045:android:f769a2fb5566eead2492c4",
+        "android_client_info": {
+          "package_name": "re.arro38.loginapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666199036045-rho4ahuijmtiuj565p54clhubuf08fs3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgWO2KUNvIo4oqUE0_bE7Rko6hKNMEX8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666199036045-rho4ahuijmtiuj565p54clhubuf08fs3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
