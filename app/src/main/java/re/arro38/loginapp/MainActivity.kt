@@ -34,14 +34,9 @@ class MainActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email.text.toString(), pwd.text.toString())
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-
+                            val intent = Intent(this,AccueilActivity::class.java)
+                            startActivity(intent)
                             val user = auth.currentUser
-                            if (user?.isEmailVerified == true){
-                                resultat.text = "vérifié"
-                            }
-                            else{
-                                resultat.text = "non vérifié"
-                            }
                         } else {
                             // If sign in fails, display a message to the user.
                             resultat.text = "bad !"
