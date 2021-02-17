@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.fuel.json.responseJson
 import com.github.kittinunf.result.Result
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -46,10 +47,17 @@ class LivreActivity : AppCompatActivity() {
 //                println(data)
 //            }
             //FUEL METHOD 2
-            Fuel.get(url).responseString{ request, response, result ->
+//            Fuel.get(url).responseString{ request, response, result ->
+//                val data = result.get()
+//                val objjson = JSONObject(data)
+//                println("objjson")
+//                println(objjson["auteur"])
+//            }
+            //FUEL METHOD 3
+            Fuel.get(url).responseJson(){ request, response, result ->
                 val data = result.get()
-                val objjson = JSONObject(data)
-                println("objjson")
+                val objjson = data.obj()
+                println("response json")
                 println(objjson["auteur"])
             }
 
