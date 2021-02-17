@@ -11,6 +11,7 @@ import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import org.json.JSONObject
 
 
 class LivreActivity : AppCompatActivity() {
@@ -21,14 +22,14 @@ class LivreActivity : AppCompatActivity() {
         val btGetLivre = findViewById<Button>(R.id.btGetLivre)
         val tvAuteur = findViewById<TextView>(R.id.tvAuteur)
         val tvTitre = findViewById<TextView>(R.id.tvTitre)
-        var client = OkHttpClient()
-
-        fun run(url: String):String {
-            val request: Request = Request.Builder()
-                .url(url)
-                .build()
-            client.newCall(request).execute().use { response -> return response.body!!.string() }
-        }
+//        var client = OkHttpClient()
+//
+//        fun run(url: String):String {
+//            val request: Request = Request.Builder()
+//                .url(url)
+//                .build()
+//            client.newCall(request).execute().use { response -> return response.body!!.string() }
+//        }
 
         btGetLivre.setOnClickListener {
             val IdLivre = etIdLivre.text
@@ -47,8 +48,9 @@ class LivreActivity : AppCompatActivity() {
             //FUEL METHOD 2
             Fuel.get(url).responseString{ request, response, result ->
                 val data = result.get()
-                println("METHODE 2")
-                println(data)
+                val objjson = JSONObject(data)
+                println("objjson")
+                println(objjson["auteur"])
             }
 
         }
