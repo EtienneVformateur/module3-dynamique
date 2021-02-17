@@ -6,6 +6,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.result.Result
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
@@ -29,12 +32,24 @@ class LivreActivity : AppCompatActivity() {
 
         btGetLivre.setOnClickListener {
             val IdLivre = etIdLivre.text
+            val url = "https://module5.etienne-vaytilingom.re/livres/33"
 
             //TODO REQUETE GET https://module5.etienne-vaytilingom.re/Livres/ IdLivre => Mettre le résultat dans tvAuteur.text et tvTitre.text
-            val thread = Thread {
-                Log.d("REPONSE",run("https://module5.etienne-vaytilingom.re/livres/33"))
+//            val thread = Thread {
+//                Log.d("REPONSE",run("https://module5.etienne-vaytilingom.re/livres/33"))
+//            }
+//            thread.start()
+//              FUEL METHOD 1
+//            url.httpGet().responseString { request, response, result ->
+//               val data = result.get()
+//                println(data)
+//            }
+            //FUEL METHOD 2
+            Fuel.get(url).responseString{ request, response, result ->
+                val data = result.get()
+                println("METHODE 2")
+                println(data)
             }
-            thread.start()
 
         }
     }
