@@ -33,8 +33,8 @@ class LivreActivity : AppCompatActivity() {
 //        }
 
         btGetLivre.setOnClickListener {
-            val IdLivre = etIdLivre.text
-            val url = "https://module5.etienne-vaytilingom.re/livres/33"
+            val IdLivre = etIdLivre.text.toString()
+            val url = "https://module5.etienne-vaytilingom.re/livres/$IdLivre"
 
             //TODO REQUETE GET https://module5.etienne-vaytilingom.re/Livres/ IdLivre => Mettre le résultat dans tvAuteur.text et tvTitre.text
 //            val thread = Thread {
@@ -55,10 +55,9 @@ class LivreActivity : AppCompatActivity() {
 //            }
             //FUEL METHOD 3
             Fuel.get(url).responseJson(){ request, response, result ->
-                val data = result.get()
-                val objjson = data.obj()
-                println("response json")
-                println(objjson["auteur"])
+                val data = result.get().obj()
+                tvAuteur.text = data["auteur"] as CharSequence?
+                tvTitre.text = data["titre"] as CharSequence?
             }
 
         }
