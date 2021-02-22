@@ -45,6 +45,12 @@
         android:text="API" />
 
     <Button
+        android:id="@+id/btBdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Base de données" />
+
+    <Button
         android:id="@+id/btVerif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
